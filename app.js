@@ -39,7 +39,18 @@ function getNotes() {
     });
 }
 
+// GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
+app.get("/api/notes", function (req, res) {    
+    return res.json(savedNotes);
+});
 
+//POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
+app.post('/api/notes', function (req, res){
+    var NewNote = {'id': Date.now(), ...req.body};
+    savedNotes.push(NewNote);
+    WriteNote();
+    return res.send('note has been saved');
+})
 
 // start server
 app.listen(PORT, function () {
