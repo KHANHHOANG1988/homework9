@@ -49,7 +49,7 @@ We would like you to have well over 200 commits by graduation, so commit early a
 * Screenshot URL
 https://github.com/KHANHHOANG1988/Homework9/blob/master/homework9.png
 * Gif URL
-https://github.com/KHANHHOANG1988/homework9/blob/master/Gif.gif
+https://github.com/KHANHHOANG1988/homework9/blob/master/homework9.gif
 * The URL of the GitHub repository
 https://github.com/KHANHHOANG1988/homework9.git
 - - -
