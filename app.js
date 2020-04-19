@@ -20,6 +20,17 @@ app.get("/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "public/notes.html"));
 });
 
+// The application should have a `db.json` file on the backend that will be used to store 
+var savedNotes= [];
+function WriteNote(){
+    fs.writeFile('./db/db.json',JSON.stringify(savedNotes, null, 2),'utf8', function(err){
+        if(err){
+            return console.log(err)
+        }
+    });
+}
+
+
 // start server
 app.listen(PORT, function () {
     console.log("localhost:" + PORT);
