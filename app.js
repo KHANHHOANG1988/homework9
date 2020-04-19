@@ -23,12 +23,22 @@ app.get("/notes", function (req, res) {
 // The application should have a `db.json` file on the backend that will be used to store 
 var savedNotes= [];
 function WriteNote(){
-    fs.writeFile('./db/db.json',JSON.stringify(savedNotes, null, 2),'utf8', function(err){
+    fs.writeFile('./db/db.json',JSON.stringify(savedNotes),'utf8', function(err){
         if(err){
             return console.log(err)
         }
     });
 }
+
+// and retrieve notes using the `fs` module.
+function getNotes() {
+    fs.readFile("db/db.json", "utf8", function (err, data) {
+        if (err) {
+            return error(err)
+        }else{ savedNotes.push(...JSON.parse(data));}
+    });
+}
+
 
 
 // start server
